@@ -2,10 +2,10 @@ cmake_minimum_required(VERSION 3.5)
 project(hub-screen)
 
 
-message("Cmake from Bui Dinh Hien")
+message("Cmake from MinhNN")
 # set path
-set(PATH_LIB /root/HubScreenSrc/hubscreen/hub-screen/generated)
-set(PATH_CUSTOM /root/HubScreenSrc/hubscreen/hub-screen/custom)
+set(PATH_LIB /home/minhnn/HubScreenSrc/hubscreen/hub-screen/generated)
+set(PATH_CUSTOM /home/minhnn/HubScreenSrc/hubscreen/hub-screen/custom)
 
 
 set(CMAKE_NO_SYSTEM_FROM_IMPORTED ON)

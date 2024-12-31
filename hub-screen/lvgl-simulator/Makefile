@@ -34,7 +34,6 @@ RMDIR := rm -rf
 ifeq ($(OS),Windows_NT)
 LDFLAGS += -LSDL2\i686-w64-mingw32\lib
 SIMULATOR_EXE = simulator.exe
-SIMULATOR_DLL = simulator.dll
 BUILD_ENV := build\object build\bin
 NULL_OUT := nul
 MKDIR_P = @if not exist "$(1)" mkdir "$(1)"
@@ -106,19 +105,12 @@ $(GEN_OBJ_DIR)%.o: %.c
 
 default: $(OBJS) $(GEN_OBJS)
 	@echo "Linking $(SIMULATOR_EXE)"
-	@ar -csr $(GEN_OBJ_DIR)/libgenerated.a $(GEN_OBJS)
-	@$(CC) -o $(BIN_DIR)$(SIMULATOR_EXE) $(OBJS) -L$(GEN_OBJ_DIR) -lgenerated $(LDFLAGS)
-ifeq ($(OS),Windows_NT)
-	@echo "Linking $(SIMULATOR_DLL)"
-	@$(CC) --shared -o $(BIN_DIR)$(SIMULATOR_DLL) $(OBJS) -L$(GEN_OBJ_DIR) -lgenerated $(LDFLAGS) --entry=_DllMainCRTStartup@12
-endif
+	@$(CC) -o $(BIN_DIR)$(SIMULATOR_EXE) $(OBJS) $(GEN_OBJS) $(LDFLAGS)
 
 cp_lib:
 	-@cp SDL2/lib/SDL2.dll build/bin/SDL2.dll $(NORMAL_OUT)>$(NULL_OUT)
 	-@cp multi_thread/libgcc_s_dw2-1.dll build/bin/libgcc_s_dw2-1.dll $(NORMAL_OUT)>$(NULL_OUT)
 	-@cp multi_thread/pthreadGC-3.dll build/bin/pthreadGC-3.dll $(NORMAL_OUT)>$(NULL_OUT)
-	-@cp multi_thread/libjansson-4.dll build/bin/libjansson-4.dll $(NORMAL_OUT)>$(NULL_OUT)
-	-@cp multi_thread/libcurl.dll build/bin/libcurl.dll $(NORMAL_OUT)>$(NULL_OUT)
 	-@cp SDL2/lib/libopenh264.dll build/bin/libopenh264.dll $(NORMAL_OUT)>$(NULL_OUT)
 
 clean:

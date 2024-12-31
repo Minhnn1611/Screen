@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-ADAPTER_NAME = "hci1"
+ADAPTER_NAME = "hci0"
 
 BLUEZ_SERVICE_NAME = "org.bluez"
 BLUEZ_NAMESPACE = "/org/bluez/"
@@ -26,6 +26,8 @@ RESULT_ERR_ACCESS_DENIED = 6
 RESULT_EXCEPTION = 7
 RESULT_ERR_BAD_ARGS = 8
 RESULT_ERR_NOT_FOUND = 9
+
+DEVICE_NAME = "Ble Device 01"
 
 UUID_NAMES = {
     "00001801-0000-1000-8000-00805f9b34fb" : "Generic Attribute Service",
@@ -57,9 +59,9 @@ UUID_NAMES = {
     "1d14d6ee-fd63-4fa1-bfa4-8f47b42119f0" : "Silicon Labs OTA",
     "f7bf3564-fb6d-4e53-88a4-5e37e0326063" : "Silicon Labs OTA Control",
     "6ee194de-c92a-4160-bc3b-33de481fa5e2" : "Led",
-    "4a94a3f2-8e5b-402e-8869-028a9c074eab" : "Led 3 Control",
-    "d157da5e-df1c-4460-8d3a-691c66ddacc5" : "Led 2 Control",
-    "893a410b-47e4-4cf3-ba9b-6eceeb6d86fd" : "Led 1 Control",
+    "4a94a3f2-8e5b-402e-8869-028a9c074eab" : "Light 3",
+    "158f0b52-59a3-4430-a505-9e9154c649f0" : "Light 2",
+    "fbe953de-b01f-4657-a05a-9ead2c892a51" : "Light 1",
     "de8a5aac-a99b-c315-0c80-60d4cbb51224" : "Blinky Example",
     "61a885a4-41c3-60d0-9a53-6d652a70d29c" : "Report Button",
     "5b026510-4088-c297-46d8-be6c736a087a" : "Led Control",
