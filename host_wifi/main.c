@@ -68,7 +68,17 @@ int main()
     return 0;
 }
 
-// This function processes both "leds" and "sws" arrays
+/**
+ * @brief Xử lý dữ liệu điều khiển cho cả LED và SW.
+ * 
+ * Hàm này nhận vào một mảng JSON (các thiết bị "leds" hoặc "sws"),
+ * sau đó tạo cấu trúc JSON mới chứa thông tin điều khiển, 
+ * và gửi qua MQTT tới topic "device/wifi".
+ *
+ * @param root   JSON gốc để chứa kết quả
+ * @param array  Mảng chứa danh sách thiết bị cần xử lý
+ * @param key    Chuỗi xác định loại thiết bị ("leds" hoặc "sws")
+ */
 void process_led_or_sw(cJSON *root, cJSON *array, const char *key) 
 {
     cJSON *item = NULL;
